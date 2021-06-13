@@ -1,0 +1,89 @@
+@using Almhd.Core.Extensions
+@{
+    var request = Url.ActionContext.HttpContext.Request;
+    var absoluteUrl = $"{request.Scheme}://{request.Host.ToUriComponent()}{request.PathBase.ToUriComponent()}";
+
+    var siteTitle = Model.Blog.Title;
+    var siteDesc = Model.Blog.Description;
+    var siteFeed = absoluteUrl + "/feed/rss";
+
+    var pageTitle = siteTitle + " | " + siteDesc;
+    var pageDesc = siteDesc;
+    var pageCanonical = absoluteUrl;
+
+    if (Model.ToString().EndsWith("PostModel"))
+    {
+        PostModel postModel = (PostModel)Model;
+        pageTitle = postModel.Post.Title + " | " +  siteTitle;
+        pageDesc = postModel.Post.Description.StripHtml();
+        pageCanonical = absoluteUrl + "/posts/" + postModel.Post.Slug;
+    }
+}
+
+<!DOCTYPE html>
+<html  dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@pageTitle</title>
+    <meta name="description" content="@pageDesc">
+    <link rel="alternate" type="application/rss+xml" title="@siteTitle" href="@siteFeed" />
+    <link rel="canonical" href="@pageCanonical" />
+    <script>document.getElementsByTagName("html")[0].className += " js";</script>
+    <link rel="stylesheet" type="text/css" href="~/assets/bootstrap/css/bootstrap.rtl.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/styles.css" />
+    <link rel="stylesheet" type="text/css" href="~/assets/css/side-nav.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@splidejs/splide@latest/dist/css/splide.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/@@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    @Html.Raw(Model.Blog.HeaderScript)
+</head>
+
+
+<body>
+
+   <div class="vertical-side-menu">
+       <div class="logo m-2">
+         <img width="60" src="~/assets/imgs/logo.png" \>
+       </div>
+       <a href="#cd-nav" class="cd-nav-trigger js-cd-nav-trigger text-replace">
+         Menu
+         <span class="cd-nav-trigger__icon" aria-hidden="true"></span>
+
+         <svg viewBox="0 0 54 54" aria-hidden="true">
+           <circle fill="transparent" stroke-width="1" cx="27" cy="27" r="25" stroke-dasharray="157 157" stroke-dashoffset="157"></circle>
+         </svg>
+       </a>
+     </div>
+     <div id="cd-nav" class="cd-nav">
+       <div class="cd-nav__content">
+         <div class="container max-width-sm">
+           <div class="grid">
+             <div class="col-6@md mt-5">
+               <nav>
+                 <ul class="cd-nav__primary" style="list-style: none">
+                   <li><a href="#0" class="cd-nav__link cd-nav__link-selected">الرئيسية</a></li>
+                   <li><a href="#0" class="cd-nav__link">الأكثر قراءة</a></li>
+                   <li><a href="#0" class="cd-nav__link">الأقسام</a></li>
+                   <li><a href="#0" class="cd-nav__link">تواصل معنا</a></li>
+                   <li><a href="#0" class="cd-nav__link">المو</a></li>
+                 </ul>
+               </nav>
+             </div>
+
+           </div>
+         </div>
+       </div> <!-- .cd-nav__content -->
+     </div>
+@RenderBody()
+
+
+
+@Html.Raw(Model.Blog.FooterScript)
+<partial name="../components/metadata.cshtml"/>
+<script src="~/assets/js/util.js"></script>
+<script src="~/assets/js/side-nav.js"></script>
+</body>
+
+</html>

@@ -1,8 +1,8 @@
-﻿using Blogifier.Core.Providers;
+﻿using Almhd.Core.Providers;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Blogifier.Tests
+namespace Almhd.Tests
 {
 	public class StorageProviderTests
 	{

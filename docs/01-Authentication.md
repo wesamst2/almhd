@@ -11,7 +11,7 @@ User password is one-way hashed and saved in the `Authors` table on the back-end
 The salt used to hash password pulled from `appsettings.json` configuration file and should be updated **before** creating user account.
 
 ```
-"Blogifier": {
+"Almhd": {
   ...
   "Salt": "SECRET-CHANGE-ME!"
 }

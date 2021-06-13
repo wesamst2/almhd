@@ -1,8 +1,8 @@
-using Blogifier.Core.Data;
+using Almhd.Core.Data;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
 
-namespace Blogifier.Tests
+namespace Almhd.Tests
 {
 	public class TestHelper
 	{
@@ -12,7 +12,7 @@ namespace Blogifier.Tests
 			get
 			{
 				string path = Directory.GetCurrentDirectory();
-				return path.Substring(0, path.IndexOf($"tests{Slash}Blogifier.Tests"));
+				return path.Substring(0, path.IndexOf($"tests{Slash}Almhd.Tests"));
 			}
 		}
 
@@ -24,7 +24,7 @@ namespace Blogifier.Tests
 
 		private string GetDataSource()
 		{
-			return $"DataSource={ContextRoot}src{Slash}Blogifier{Slash}Blog.db";
+			return $"DataSource={ContextRoot}src{Slash}Almhd{Slash}Blog.db";
 		}
 	}
 }
