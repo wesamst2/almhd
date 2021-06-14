@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/contentModel.xml
+/projectSettingsUpdater.xml
+/.idea.Blogifier.iml
+# Datasource local storage ignored files
+/../../../../../../../../../../:\Users\Motasem GHZ\Desktop\My Files\Projects\almhd\.idea\.idea.Blogifier\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
