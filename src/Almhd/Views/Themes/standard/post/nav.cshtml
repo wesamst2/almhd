@@ -6,13 +6,13 @@
 @{
     PostModel _model = (PostModel)Model;
 }
-<nav class="post-nav">
+<nav class="post-nav  m-0 pb-4">
     <div class="d-none d-md-flex align-items-md-center">
         @if (Model.Older != null)
         {
             <div class="col">
                 <a class="post-nav-item text-start" href="~/posts/@_model.Older.Slug" aria-label="@_localizer["Previous post"]">
-                    <span class="post-nav-text">@_localizer["Previous post"]</span>
+                    <span class="post-nav-text">الخبر السابق</span>
                     <h4 class="post-nav-title">@_model.Older.Title</h4>
                 </a>
             </div>
@@ -21,7 +21,7 @@
         {
             <div class="col">
                 <a class="post-nav-item text-end" href="~/posts/@_model.Newer.Slug" aria-label="@_localizer["Next post"]">
-                    <span class="post-nav-text">@_localizer["Next post"]</span>
+                    <span class="post-nav-text">الخبر التالي</span>
                     <h4 class="post-nav-title">@_model.Newer.Title</h4>
                 </a>
             </div>
