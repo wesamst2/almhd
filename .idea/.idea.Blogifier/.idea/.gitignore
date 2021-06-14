@@ -2,12 +2,21 @@
 /shelf/
 /workspace.xml
 # Rider ignored files
+<<<<<<< HEAD
 /modules.xml
 /contentModel.xml
 /projectSettingsUpdater.xml
 /.idea.Blogifier.iml
 # Datasource local storage ignored files
 /../../../../../../../../../../:\Users\Motasem GHZ\Desktop\My Files\Projects\almhd\.idea\.idea.Blogifier\.idea/dataSources/
+=======
+/contentModel.xml
+/projectSettingsUpdater.xml
+/.idea.Blogifier.iml
+/modules.xml
+# Datasource local storage ignored files
+/../../../../../../../../:\Users\Wissam\RiderProjects\Blogifier\.idea\.idea.Blogifier\.idea/dataSources/
+>>>>>>> refs/remotes/origin/main
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/

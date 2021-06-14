@@ -1,0 +1,266 @@
+body, html {
+  padding: 0;
+  margin: 0;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.wrapper{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+}
+.wrapper section{
+  min-width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+/* --------------------------------------- one ---------------------------------------*/
+
+.one {
+  width: 100%;
+  background: #773dbd;
+  padding: 80px 100px;
+}
+.one .slide-inside,.one .slide-inside a,.one .slide-inside p{
+  color: white !important;
+  text-decoration: none;
+}
+.one .slide-inside p{
+  margin: 0;
+}
+.one #secondary-slider .splide__list{
+  margin: 80px auto 0 auto !important;
+}
+.one .splide--nav>.splide__track>.splide__list>.splide__slide.is-active{
+  border-color: #f05323;
+}
+.one .splide__slide img {
+  width : 100%;
+  height: auto;
+}
+.one .splide__slide .category{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background: #f05323;
+  padding: 5px 10px;
+}
+.one .post-date{
+  font-family: theMixArab;
+  font-weight: normal;
+}
+.one .post-title{
+  font-family: theMixArab;
+}
+.one .post-title h1{
+  font-size: xxx-large;
+  font-weight: bold;
+}
+.one .post-brief{
+  font-family: janna;
+  font-weight: normal;
+  margin-top: 30px;
+}
+.one .read-more-btn{
+  border-radius: 25px;
+  border: 3px solid #f05323;
+  width: 150px;
+  margin-top: 30px;
+}
+.one .read-more-btn p{
+  font-family: janna;
+  font-weight: normal;
+}
+.one .read-more-btn:hover{
+  background-color: #f05323;
+}
+.one .post-arrow{
+  z-index: 1;
+  background: #f05323;
+  padding: 0px 16px;
+}
+.one .post-arrow i{
+  color: white;
+  font-size: 65px;
+  height: 50px;
+  width: 50px;
+}
+
+/*------------------------------------------- two -------------------------------------*/
+.two {
+  width: 100%;
+  background: #dde1ea;
+  height: 100vh;
+}
+.two .slide-inside p{
+  margin: 0;
+}
+.two .slide-inside{
+   padding: 100px 100px;
+ }
+.two .slide-inside,.two .slide-inside a,.two .slide-inside p{
+  color: #4c3076 !important;
+}
+.two .post-date{
+  font-family: theMixArab;
+  font-weight: normal;
+}
+.two .post-title{
+  font-family: theMixArab;
+}
+.two .post-title h1{
+  font-size: xxx-large;
+  font-weight: bold;
+}
+.two .post-brief{
+  font-family: janna;
+  font-weight: normal;
+  margin-top: 30px;
+}
+.two .read-more-btn{
+  border-radius: 25px;
+  border: 3px solid #f05323;
+  width: 150px;
+  margin-top: 30px;
+}
+.two .read-more-btn p{
+  font-family: janna;
+  font-weight: normal;
+}
+.two .read-more-btn:hover{
+  background-color: #f05323;
+  color: white !important;
+}
+.two .read-more-btn:hover p{
+  color: white !important;
+}
+
+
+/*------------------------------------------- three -------------------------------------*/
+.three {
+  width: 100% !important;
+  background: #f05422;
+  height: 100vh;
+}
+.three .slide-inside p{
+  margin: 0;
+}
+.three .slide-inside{
+  padding: 100px 100px;
+}
+.three .slide-inside,.three .slide-inside a,.three .slide-inside p{
+  color: white !important;
+}
+.three .post-date{
+  font-family: theMixArab;
+  font-weight: normal;
+}
+.three .post-title{
+  font-family: theMixArab;
+}
+.three .post-title h1{
+  font-size: xxx-large;
+  font-weight: bold;
+}
+.three .post-brief{
+  font-family: janna;
+  font-weight: normal;
+  margin-top: 30px;
+}
+.three .read-more-btn{
+  border-radius: 25px;
+  border: 3px solid #70cfeb;
+  width: 150px;
+  margin-top: 30px;
+}
+.three .read-more-btn p{
+  font-family: janna;
+  font-weight: normal;
+}
+.three .read-more-btn:hover{
+  background-color: #70cfeb;
+  color: white !important;
+}
+.three .read-more-btn:hover p{
+  color: white !important;
+}
+
+/*------------------------------------------- four -------------------------------------*/
+.four {
+  background: #773dbd;
+  height: 100vh;
+}
+.four .slide-inside p{
+  margin: 0;
+}
+.four .title{
+  font-family: theMixArab;
+  font-weight: bold;
+}
+@font-face {
+  font-family: theMixArab;
+  src: url('fonts/TheMixArab Regular.ttf');
+  font-weight: normal;
+}
+@font-face {
+  font-family: theMixArab;
+  src: url('fonts/TheMixArab Bold.ttf');
+  font-weight: bold;
+}
+@font-face {
+  font-family: janna;
+  src: url('fonts/Janna LT Regular.ttf');
+  font-weight: bold;
+}
+
+.cd-nav__link{
+  font-family: janna !important;
+}
+.vertical-side-menu{
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  background: #4c3076;
+  z-index: 2;
+}
+.cd-nav-trigger{
+  top: unset !important;
+  bottom: 20px !important;
+  width: 90% !important;
+  position: absolute !important;
+  margin: 5% !important;
+  background: unset !important;
+}
+.cd-nav-trigger__icon{
+  width: 30px !important;
+  left: calc(50% - 15px) !important;
+}
+.cd-nav-trigger__icon::before {
+  -webkit-transform-origin: right top;
+  -ms-transform-origin: right top;
+  transform-origin: right top;
+  -webkit-transform: translateY(-10px) !important;
+  -ms-transform: translateY(-10px) !important;
+  transform: translateY(-10px) !important;
+}
+.cd-nav-trigger__icon::after {
+  -webkit-transform-origin: right bottom;
+  -ms-transform-origin: right bottom;
+  transform-origin: right bottom;
+  -webkit-transform: translateY(10px) !important;
+  -ms-transform: translateY(10px) !important;
+  transform: translateY(10px) !important;
+}

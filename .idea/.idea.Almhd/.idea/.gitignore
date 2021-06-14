@@ -2,12 +2,21 @@
 /shelf/
 /workspace.xml
 # Rider ignored files
+<<<<<<< HEAD
 /contentModel.xml
 /.idea.Almhd.iml
 /projectSettingsUpdater.xml
 /modules.xml
 # Datasource local storage ignored files
 /../../../../../../../../../../:\Users\Motasem GHZ\Desktop\My Files\Projects\almhd\.idea\.idea.Almhd\.idea/dataSources/
+=======
+/modules.xml
+/projectSettingsUpdater.xml
+/.idea.Almhd.iml
+/contentModel.xml
+# Datasource local storage ignored files
+/../../../../../../../../:\Users\Wissam\RiderProjects\Almhd\.idea\.idea.Almhd\.idea/dataSources/
+>>>>>>> refs/remotes/origin/main
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
