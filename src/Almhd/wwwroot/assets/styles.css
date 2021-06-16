@@ -314,3 +314,44 @@ html {
   font-size: 12px;
   font-weight: 700;
 }
+
+.category-filters {
+  margin-inline-start: 100px;
+  align-items: center;
+}
+
+.category-filters .category-header h6 {
+  margin-bottom: 0;
+}
+
+.category-filters .filter .filter-link{
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 20px;
+  border: 2px solid #4c3076;
+  color: #313f48;
+  background: transparent;
+  box-shadow: 0 0 0 0;
+  padding: 6px 12px;
+  transition: color, background-color 300ms;
+}
+
+.category-filters .filter .filter-link.active{
+  background-color: #4c3076;
+  color: white;
+}
+
+.category-filters .filter .filter-link:hover {
+  color: white;
+  background: #4c3076bb;
+}
+
+.categories-title {
+  font-size: 48px;
+  margin-right: 100px;
+  color: #313f48;
+}
+
+.grey-bg {
+  background-color: #dde1ea;
+}

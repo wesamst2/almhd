@@ -3,10 +3,17 @@
 }
 
 <main class="container">
+    <h1 class="categories-title h3 my-5">الأكثر قراءة</h1>
+    <div class="category-filters d-flex my-5">
+        <div class="category-header me-3"><h6>تصفية المحتوى حسب</h6></div>
+        <div class="filter me-2"><a class="btn  filter-link">خلال اليوم</a></div>
+        <div class="filter me-2"><a class="btn  filter-link">خلال أسبوع</a></div>
+        <div class="filter me-2"><a class="btn  filter-link">خلال شهر</a></div>
+        <div class="filter me-2"><a class="btn  filter-link active">أحدث الأخبار</a></div>
+    </div>
     <div class="category">
-        <h1 class="h3 mb-5">CATEGORY_TITLE</h1>
-            <div class="row">
-                    <partial name="post/view-list.cshtml" />
-            </div>
+        <div class="row">
+            <partial name="post/view-list.cshtml"/>
+        </div>
     </div>
 </main>
