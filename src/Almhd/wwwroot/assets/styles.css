@@ -264,3 +264,44 @@ html {
   -ms-transform: translateY(10px) !important;
   transform: translateY(10px) !important;
 }
+
+/* Motasem */
+.category {
+  margin-right: 100px;
+}
+
+.post-list .post-list-cover {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.post-list .post-list-cover .post-list-img {
+  width: 100%;
+}
+
+.post-list-cat-title {
+  background: #f05422;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  position: absolute;
+  top: -38px;
+  right: 0;
+  width: 150px;
+  text-overflow: ellipsis;
+  text-wrap: none;
+  padding: 4px 12px;
+}
+
+.post-list-title .post-list-link {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: #313f48;
+}
+
+.post-list-meta {
+  color: #999999;
+  font-size: 12px;
+  font-weight: 700;
+}
