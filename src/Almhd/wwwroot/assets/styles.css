@@ -291,6 +291,11 @@ html {
   text-overflow: ellipsis;
   text-wrap: none;
   padding: 4px 12px;
+  transition: color 300ms;
+}
+
+.post-list-cat-title:hover {
+  color: #4c3076;
 }
 
 .post-list-title .post-list-link {
@@ -298,6 +303,10 @@ html {
   font-size: 18px;
   font-weight: 700;
   color: #313f48;
+}
+
+.post-list-title .post-list-link:hover {
+  color: #f05422;
 }
 
 .post-list-meta {
