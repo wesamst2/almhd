@@ -10,7 +10,7 @@
 
 @if (listModel.Posts.Count() > 0)
 {
-    @for (int i=0;i<Math.Min(4,listModel.Posts.Count());i++)
+    @for (int i=0;i<listModel.Posts.Count();i++)
     {
         var post = listModel.Posts.ToList()[i];
         <article class="post-list col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
@@ -29,8 +29,8 @@
                             <span class="post-list-author-name">@post.Author.DisplayName.ToUpper()</span>
                         </div>
                          <div class="post-list-meta-item post-list-author">
-                                                    <span class="post-list-author-name"><i class="bi bi-eye" style="margin-left: 5px"></i>@post.PostViews</span>
-                                                </div>
+                            <span class="post-list-author-name"><i class="bi bi-eye" style="margin-left: 5px"></i>@post.PostViews</span>
+                        </div>
                         @if (post.Categories != null)
                         {
                             <div class="post-list-meta-item post-list-cat">
@@ -51,11 +51,6 @@
                 </section>
         </article>
     }
-
-     <div class="category-filters mx-0 my-5">
-         <div class="filter me-2"><a href="~/categories/@listModel.Category" class="btn  filter-link">قراءة المزيد ضمن @listModel.Category</a></div>
-     </div>
-    <hr/>
 }
 else
 {

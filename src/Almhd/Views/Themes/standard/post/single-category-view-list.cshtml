@@ -27,10 +27,10 @@
                         </div>
                         <div class="post-list-meta-item post-list-author">
                             <span class="post-list-author-name">@post.Author.DisplayName.ToUpper()</span>
+                         </div>
+                        <div class="post-list-meta-item post-list-author">
+                            <span class="post-list-author-name"><i class="bi bi-eye" style="margin-left: 5px"></i>@post.PostViews</span>
                         </div>
-                         <div class="post-list-meta-item post-list-author">
-                                                    <span class="post-list-author-name"><i class="bi bi-eye" style="margin-left: 5px"></i>@post.PostViews</span>
-                                                </div>
                         @if (post.Categories != null)
                         {
                             <div class="post-list-meta-item post-list-cat">
@@ -51,11 +51,6 @@
                 </section>
         </article>
     }
-
-     <div class="category-filters mx-0 my-5">
-         <div class="filter me-2"><a href="~/categories/@listModel.Category" class="btn  filter-link">قراءة المزيد ضمن @listModel.Category</a></div>
-     </div>
-    <hr/>
 }
 else
 {

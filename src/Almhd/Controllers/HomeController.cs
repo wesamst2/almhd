@@ -25,10 +25,12 @@ namespace Almhd.Controllers
 		protected readonly IThemeProvider _themeProvider;
 		protected readonly IStorageProvider _storageProvider;
         protected readonly ICompositeViewEngine _compositeViewEngine;
+        protected readonly ICategoryProvider _categoryProvider;
+
 
         public HomeController(IBlogProvider blogProvider,
             IPostProvider postProvider, IFeedProvider feedProvider, IAuthorProvider authorProvider, IThemeProvider themeProvider,
-            IStorageProvider storageProvider, ICompositeViewEngine compositeViewEngine)
+            IStorageProvider storageProvider, ICompositeViewEngine compositeViewEngine, ICategoryProvider categoryProvider)
 		{
 			_blogProvider = blogProvider;
 			_postProvider = postProvider;
@@ -37,7 +39,8 @@ namespace Almhd.Controllers
 			_themeProvider = themeProvider;
 			_storageProvider = storageProvider;
             _compositeViewEngine = compositeViewEngine;
-		}
+            _categoryProvider = categoryProvider;
+        }
 
 		public async Task<IActionResult> Index(string term, int page = 1)
 		{
@@ -87,6 +90,42 @@ namespace Almhd.Controllers
 			return Redirect($"/home?term={term}");
 		}
 
+        [HttpGet("categories")]
+        public async Task<IActionResult> AllCategories(int page = 1)
+        {
+
+            CategoriesModel categoriesModel = new CategoriesModel();
+            categoriesModel.AllModels = new List<ListModel>();
+            categoriesModel.Categories = new List<CategoryItem>();
+            try
+            {
+                categoriesModel.Blog = await _blogProvider.GetBlogItem();
+            }
+            catch
+            {
+                return Redirect("~/admin");
+            }
+            foreach (var category in _categoryProvider.Categories().Result)
+            {
+                ListModel model = new ListModel { PostListType = PostListType.Category };
+
+                model.Category = category.Category;
+                model.Pager = new Pager(page, categoriesModel.Blog.ItemsPerPage);
+                model.Posts = await _postProvider.GetList(model.Pager, 0, category.Category, "PF");
+
+                if (model.Pager.ShowOlder) model.Pager.LinkToOlder = $"?page={model.Pager.Older}";
+                if (model.Pager.ShowNewer) model.Pager.LinkToNewer = $"?page={model.Pager.Newer}";
+
+                categoriesModel.AllModels.Add(model);
+                categoriesModel.Categories.Add(category);
+
+            }
+
+            string viewPath = $"~/Views/Themes/Standard/Categories.cshtml";
+            return View(viewPath, categoriesModel);
+
+        }
+
 		[HttpGet("categories/{category}")]
 		public async Task<IActionResult> Categories(string category, int page = 1)
 		{
@@ -100,6 +139,7 @@ namespace Almhd.Controllers
 				return Redirect("~/admin");
 			}
 
+            model.Category = category;
 			model.Pager = new Pager(page, model.Blog.ItemsPerPage);
 			model.Posts = await _postProvider.GetList(model.Pager, 0, category, "PF");
 
@@ -113,6 +153,34 @@ namespace Almhd.Controllers
 
             return View($"~/Views/Themes/{model.Blog.Theme}/Index.cshtml", model);
 		}
+
+        [HttpGet("most-read")]
+        public async Task<IActionResult> MostRead(string category, int page = 1)
+        {
+            var model = new ListModel { PostListType = PostListType.Category };
+            try
+            {
+                model.Blog = await _blogProvider.GetBlogItem();
+            }
+            catch
+            {
+                return Redirect("~/admin");
+            }
+
+            model.Category = category;
+            model.Pager = new Pager(page, model.Blog.ItemsPerPage);
+            model.Posts = await _postProvider.GetPopular(model.Pager, 0);
+
+            if (model.Pager.ShowOlder) model.Pager.LinkToOlder = $"?page={model.Pager.Older}";
+            if (model.Pager.ShowNewer) model.Pager.LinkToNewer = $"?page={model.Pager.Newer}";
+
+            string viewPath = $"~/Views/Themes/{model.Blog.Theme}/MostRead.cshtml";
+
+            if (IsViewExists(viewPath))
+                return View(viewPath, model);
+
+            return View($"~/Views/Themes/{model.Blog.Theme}/Index.cshtml", model);
+        }
 
 		[HttpGet("posts/{slug}")]
 		public async Task<IActionResult> Single(string slug)

@@ -21,107 +21,106 @@ const
 const
   editorToolbar_heading = {
     name: "heading",
-    action: EasyMDE.toggleHeadingSmaller,
-    icon: editorIcon_heading,
+    action: SimpleMDE.toggleHeadingSmaller,
+    className: "fas mx-2 fa-heading",
     title: "Heading",
   },
   editorToolbar_bold = {
     name: "bold",
-    action: EasyMDE.toggleBold,
-    icon: editorIcon_bold,
+    action: SimpleMDE.toggleBold,
+    className: "fa mx-2 fa-bold",
     title: "Bold",
   },
   editorToolbar_italic = {
     name: "italic",
-    action: EasyMDE.toggleItalic,
-    icon: editorIcon_italic,
+    action: SimpleMDE.toggleItalic,
+    className: "fa mx-2 fa-italic",
     title: "Italic",
   },
   editorToolbar_strike = {
     name: "strikethrough",
-    action: EasyMDE.toggleStrikethrough,
-    icon: editorIcon_strikethrough,
+    action: SimpleMDE.toggleStrikethrough,
+    className: "fa mx-2 fa-strikethrough",
     title: "Strikethrough",
   },
   editorToolbar_ul = {
     name: "unordered-list",
-    action: EasyMDE.toggleUnorderedList,
-    icon: editorIcon_ul,
+    action: SimpleMDE.toggleUnorderedList,
+    className: "fa mx-2 fa-list-ul",
     title: "List",
   },
   editorToolbar_ol = {
     name: "ordered-list",
-    action: EasyMDE.toggleOrderedList,
-    icon: editorIcon_ol,
+    action: SimpleMDE.toggleOrderedList,
+    className: "fa mx-2 fa-list-ol",
     title: "Numbered List",
   },
   editorToolbar_quote = {
     name: "quote",
-    action: EasyMDE.toggleBlockquote,
-    icon: editorIcon_blockquote,
+    action: SimpleMDE.toggleBlockquote,
+    className: "fa mx-2 fa-quote-left",
     title: "Quote",
   },
   editorToolbar_link = {
     name: "link",
-    action: EasyMDE.drawLink,
-    icon: editorIcon_link,
+    action: SimpleMDE.drawLink,
+    className: "fa mx-2 fa-link",
     title: "Create Link",
   },
   editorToolbar_image = {
-    name: "image",
+    name: "className",
     action: insertImage,
-    icon: editorIcon_image,
+    className: "fa mx-2 fa-image",
     title: "Insert Image",
   },
   editorToolbar_video = {
     name: "insertYoutube",
     action: insertYoutube,
-    icon: editorIcon_video,
+    className: "fab mx-2 fa-youtube",
     title: "Insert Video",
   },
   editorToolbar_table = {
     name: "table",
-    action: EasyMDE.drawTable,
-    icon: editorIcon_table,
+    action: SimpleMDE.drawTable,
+    className: "fa mx-2 fa-table",
     title: "Insert Table",
   },
   editorToolbar_code = {
     name: "code",
-    action: EasyMDE.toggleCodeBlock,
-    icon: editorIcon_code,
+    action: SimpleMDE.toggleCodeBlock,
+    className: "fa mx-2 fa-code",
     title: "Insert Code",
   },
   editorToolbar_hr = {
     name: "horizontal-rule",
-    action: EasyMDE.drawHorizontalRule,
-    icon: editorIcon_hr,
+    action: SimpleMDE.drawHorizontalRule,
+    className: "fa mx-2 fa-minus",
     title: "Horizontal Line",
   },
   editorToolbar_clear = {
     name: "clean-block",
-    action: EasyMDE.cleanBlock,
-    icon: editorIcon_clear,
+    action: SimpleMDE.cleanBlock,
+    className: "fa mx-2 fa-eraser",
     title: "Clean block",
   },
   editorToolbar_preview = {
     name: "preview",
-    action: EasyMDE.togglePreview,
-    icon: editorIcon_preview,
+    action: SimpleMDE.togglePreview,
+    className: "fa mx-2 fa-eye no-disable ms-auto",
     title: "Toggle Preview",
-    noDisable: true,
-    className: "ms-auto"
+    noDisable: true
   },
   editorToolbar_sidebyside = {
     name: "side-by-side",
-    action: EasyMDE.toggleSideBySide,
-    icon: editorIcon_sidebyside,
+    action: SimpleMDE.toggleSideBySide,
+    className: "fa mx-2 fa-columns no-disable no-mobile",
     title: "Toggle Side by Side",
     noDisable: true,
   },
   editorToolbar_fullscreen = {
     name: "fullscreen",
-    action: EasyMDE.toggleFullScreen,
-    icon: editorIcon_fullscreen,
+    action: SimpleMDE.toggleFullScreen,
+    className: "fa mx-2 fa-arrows-alt no-disable no-mobile",
     title: "Toggle Fullscreen",
     noDisable: true,
   };
@@ -145,7 +144,6 @@ const fullToolbar = [
   editorToolbar_video,
   "|",
   editorToolbar_preview,
-  editorToolbar_sidebyside,
   editorToolbar_fullscreen
 ];
 
@@ -173,7 +171,7 @@ function getEditor(_toolbar) {
   }
 
   let bf_editor = document.getElementById('bf_editor');
-  let easyMDE = new EasyMDE({
+  let easyMDE = new SimpleMDE({
     element: bf_editor,
     autoDownloadFontAwesome: false,
     indentWithTabs: false,

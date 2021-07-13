@@ -11,14 +11,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Almhd.Core", "src\Almhd.Core\Almhd.Core.csproj", "{99296F5E-F267-4483-97BF-647080D21C35}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{512E41FF-25A7-49D6-B126-EC1450E17B72}"
-	ProjectSection(SolutionItems) = preProject
-		docs\01-Authentication.md = docs\01-Authentication.md
-		docs\02-Database.md = docs\02-Database.md
-		docs\03-Logging.md = docs\03-Logging.md
-		docs\04-Localization.md = docs\04-Localization.md
-		docs\05-Emails.md = docs\05-Emails.md
-		docs\06-Newsletters.md = docs\06-Newsletters.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8DDBCDEC-BFD8-4737-93BD-5259C3AE9CAE}"
 EndProject

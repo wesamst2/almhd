@@ -1,0 +1,21 @@
+@{
+    Layout = "layouts/_main.cshtml";
+
+    CategoriesModel allModels = (CategoriesModel) Model;
+}
+<div class="col-12" style="background: #dde1ea;">
+    <main class="container">
+        <h1 class="categories-title h3 py-5">الأقسام</h1>
+
+        @foreach(var cat in allModels.AllModels)
+        {
+
+            <div class="category">
+                <div class="row">
+                    <partial name="post/view-list.cshtml" model="cat"/>
+                </div>
+            </div>
+        }
+    </main>
+
+</div>

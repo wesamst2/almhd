@@ -13,196 +13,202 @@
     var absoluteUrl = $"{request.Scheme}://{request.Host.ToUriComponent()}{request.PathBase.ToUriComponent()}";
     var newsletterAction = @absoluteUrl + "/api/newsletter/subscribe";
 }
-<div class="col-12 wrapper" data-0="transform:translateX(0%);" data-1000="transform:translateX(@width%);">
-    @if (_featured != null)
-    {
-        <!------------------- page one ----------------------------->
-        <section>
-            <div class="container-fluid one">
-                <div class="col-12 slide-inside">
-                    <div class="row">
-                        <div class="col-10">
-                            <div id="primary-slider" class="splide">
-                                <div class="splide__track">
-                                    <ul class="splide__list">
-                                        @for (int i = 0; i < 3; i++)
-                                        {
-                                            if (_featured[i] == null) continue;
-                                            PostItem item = _featured[i];
+<div class="col-12">
+    <div class="col-12 wrapper" data-0="transform:translateX(0%);" data-1000="transform:translateX(@width%);">
+        @if (_featured != null)
+        {
+            <!------------------- page one ----------------------------->
+            <section>
+                <div class="container-fluid one">
+                    <div class="col-12 slide-inside">
+                        <div class="row">
+                            <div class="col-10">
+                                <div class="width-100%">
+                                    <h1 style="font-weight: bold;margin-bottom: 10px">مجلة المهد</h1>
+                                </div>
+                                <div id="primary-slider" class="splide">
+                                    <div class="splide__track">
+                                        <ul class="splide__list">
+                                            @for (int i = 0; i < 3; i++)
+                                            {
+                                                if (_featured[i] == null) continue;
+                                                PostItem item = _featured[i];
 
-                                            <li class="splide__slide">
-                                                <div class="col-10 post-header">
-                                                    <div class="col-12 post-date">
-                                                        <p>@item.Published.ToFriendlyShortArabicDateString()</p>
-                                                    </div>
-                                                    <div class="col-12 post-title">
-                                                        <h1>@item.Title</h1>
-                                                    </div>
-                                                    <div class="col-12 post-brief">
-                                                        <p>@item.Description</p>
-                                                    </div>
-                                                    <a href="~/posts/@item.Slug">
-                                                        <div class="btn read-more-btn">
-                                                            <p>أكمل القراءة</p>
+                                                <li class="splide__slide">
+                                                    <div class="col-10 post-header">
+                                                        <div class="col-12 post-date">
+                                                            <p>@item.Published.ToFriendlyShortArabicDateString()</p>
                                                         </div>
-                                                    </a>
+                                                        <div class="col-12 post-title">
+                                                            <h1>@item.Title.Substring(0, Math.Min(40, item.Title.Length))...</h1>
+                                                        </div>
+                                                        <div class="col-12 post-brief">
+                                                            <p>@item.Description</p>
+                                                        </div>
+                                                        <a href="~/posts/@item.Slug">
+                                                            <div class="btn read-more-btn">
+                                                                <p>أكمل القراءة</p>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="col-auto btn rounded-circle post-arrow " data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                    <i class="bi bi-arrow-left"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="secondary-slider" class="splide">
+                            <div class="splide__track" id="splide06-track">
+                                <ul class="splide__list" id="splide06-list">
+                                    @for (int i = 0; i < 3; i++)
+                                    {
+                                        if (_featured[i] == null) continue;
+                                        PostItem item = _featured[i];
+
+                                        <li class="splide__slide">
+                                            <img src="@item.Cover">
+
+                                            @if (item.Categories != null && item.Categories.Count > 0)
+                                            {
+                                                <div class="category ms-0">
+                                                    <p>@item.Categories.First().Content</p>
                                                 </div>
-                                            </li>
-                                        }
-                                    </ul>
-                                </div>
+                                            }
+                                        </li>
+                                    }
+                                </ul>
                             </div>
                         </div>
-                        <div class="col-2">
-                            <button type="button" class="col-auto btn rounded-circle post-arrow " data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <i class="bi bi-arrow-left"></i>
-                            </button>
-                        </div>
+
                     </div>
+                </div>
+            </section>
+        }
 
-                    <div id="secondary-slider" class="splide">
-                        <div class="splide__track" id="splide06-track">
-                            <ul class="splide__list" id="splide06-list">
-                                @for (int i = 0; i < 3; i++)
-                                {
-                                    if (_featured[i] == null) continue;
-                                    PostItem item = _featured[i];
+        @if (_featured.Count >= 4)
+        {
+            PostItem item = _featured[3];
 
-                                    <li class="splide__slide">
-                                        <img src="@item.Cover">
-
-                                        @if (item.Categories != null && item.Categories.Count > 0)
-                                        {
-                                            <div class="category">
-                                                <p>@item.Categories.First().Content</p>
+            <!------------------- page two ----------------------------->
+            <section>
+                <div class="container-fluid two mx-3">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="slide-inside">
+                                    <div class="col-12 post-header">
+                                        <div class="col-12 post-title">
+                                            <h1>@item.Title</h1>
+                                        </div>
+                                        <div class="col-12 post-brief">
+                                            <p>@item.Description</p>
+                                        </div>
+                                        <div class="col-12 post-date mt-2">
+                                            <p>@item.Published.ToFriendlyShortArabicDateString()</p>
+                                        </div>
+                                        <a href="~/posts/@item.Slug">
+                                            <div class="btn read-more-btn">
+                                                <p>أكمل القراءة</p>
                                             </div>
-                                        }
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    }
-
-    @if (_featured.Count >= 4)
-    {
-        PostItem item = _featured[3];
-
-        <!------------------- page two ----------------------------->
-        <section>
-            <div class="container-fluid two mx-3">
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="slide-inside">
-                                <div class="col-12 post-header">
-                                    <div class="col-12 post-title">
-                                        <h1>@item.Title</h1>
+                                        </a>
                                     </div>
-                                    <div class="col-12 post-brief">
-                                        <p>@item.Description</p>
-                                    </div>
-                                    <div class="col-12 post-date mt-2">
-                                        <p>@item.Published.ToFriendlyShortArabicDateString()</p>
-                                    </div>
-                                    <a href="~/posts/@item.Slug">
-                                        <div class="btn read-more-btn">
-                                            <p>أكمل القراءة</p>
-                                        </div>
-                                    </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-6" style="height:100vh;background-image: url('@item.Cover');background-size: cover;background-position: center">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    }
-
-    @if (_featured.Count >= 5)
-    {
-        PostItem item = _featured[4];
-
-        <!------------------- page three ----------------------------->
-        <section style="min-width: 75%">
-            <div class="container-fluid three">
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-7">
-                            <div class="slide-inside">
-                                <div class="col-12 post-header">
-                                    <div class="col-12 post-title">
-                                        <h1>@item.Title</h1>
-                                    </div>
-                                    <div class="col-12 post-brief">
-                                        <p>@item.Description</p>
-                                    </div>
-                                    <div class="col-12 post-date mt-2">
-                                        <p>@item.Published.ToFriendlyShortArabicDateString()</p>
-                                    </div>
-                                    <a href="~/posts/@item.Slug">
-                                        <div class="btn read-more-btn">
-                                            <p>أكمل القراءة</p>
-                                        </div>
-                                    </a>
-                                </div>
+                            <div class="col-6" style="height:100vh;background-image: url('@item.Cover');background-size: cover;background-position: center">
                             </div>
                         </div>
-                        <div class="col-5 px-0 four text-center">
-                            <h1 class="text-white my-5 title">ابق على تواصل</h1>
-                            <img class="col-12" src="assets/imgs/stay.png">
-                            <p class="text-white my-5 title">ابق على إطلاع بأحدث مقالات مجلة أكاديمية مهد الرياضية</p>
-                            <form id="newsletter" action="@newsletterAction" class="newsletter-form col m-auto col-10 text-center">
-                                <div class="d-inline" style="
-                                 display: inline-flex !important;
-                             ">
-                                    <input id="newsletter_email" class="newsletter-input" name="email" placeholder="البريد الإلكتروني" type="email" autocomplete="off" required="" style="
-                                 direction: rtl;
-                                 border-radius: 10px;
-                                 border: 0;
-                                 background: #4f3176;
-                                 color: white;
-                             ">
-                                    <button class="btn" type="submit" style="
-                                 background: #ff5002;
-                                 color: white;
-                                 border-radius: 15px;
-                                 margin-right: 10px;
-                             ">إشترك</button>
+                    </div>
+                </div>
+            </section>
+        }
+
+        @if (_featured.Count >= 5)
+        {
+            PostItem item = _featured[4];
+
+            <!------------------- page three ----------------------------->
+            <section style="min-width: 75%">
+                <div class="container-fluid three">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-7">
+                                <div class="slide-inside">
+                                    <div class="col-12 post-header">
+                                        <div class="col-12 post-title">
+                                            <h1>@item.Title</h1>
+                                        </div>
+                                        <div class="col-12 post-brief">
+                                            <p>@item.Description</p>
+                                        </div>
+                                        <div class="col-12 post-date mt-2">
+                                            <p>@item.Published.ToFriendlyShortArabicDateString()</p>
+                                        </div>
+                                        <a href="~/posts/@item.Slug">
+                                            <div class="btn read-more-btn">
+                                                <p>أكمل القراءة</p>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
-                            </form>
-                            <div id="newsletter_status" class="mt-2 text-white" onclick="resetNewsletter()" role="status" data-success="تم الإشتراك بنجاح. شكرا لك" data-error="عذرا حدث خطأز يرجى إعادة المحاولة"></div>
+                            </div>
+                            <div class="col-5 px-0 four text-center">
+                                <h1 class="text-white my-5 title">ابق على تواصل</h1>
+                                <img class="col-12" src="assets/imgs/stay.png">
+                                <p class="text-white my-4 mx-2 title">ابق على إطلاع بأحدث مقالات مجلة أكاديمية مهد الرياضية</p>
+                                <form id="newsletter" action="@newsletterAction" class="newsletter-form col m-auto col-10 text-center">
+                                    <div class="d-inline" style="
+                                     display: inline-flex !important;
+                                 ">
+                                        <input id="newsletter_email" class="newsletter-input" name="email" placeholder="البريد الإلكتروني" type="email" autocomplete="off" required="" style="
+                                     direction: rtl;
+                                     border-radius: 10px;
+                                     border: 0;
+                                     background: #4f3176;
+                                     color: white;
+                                 ">
+                                        <button class="btn" type="submit" style="
+                                     background: #ff5002;
+                                     color: white;
+                                     border-radius: 15px;
+                                     margin-right: 10px;
+                                 ">إشترك</button>
+                                    </div>
+                                </form>
+                                <div id="newsletter_status" class="mt-2 text-white" onclick="resetNewsletter()" role="status" data-success="تم الإشتراك بنجاح. شكرا لك" data-error="عذرا حدث خطأز يرجى إعادة المحاولة"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    }
+            </section>
+        }
 
 
 
 
+    </div>
 </div>
+
 <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
 <script type='text/javascript' src='~/assets/bootstrap/js/bootstrap.min.js'></script>
 <script type="text/javascript" src="~/themes/standard/js/newsletter.js"></script>
 <script type="text/javascript" src="~/assets/js/skrollr.js"></script>
 <script type="text/javascript">
     var s = skrollr.init();
-  </script>
+</script>
 
 <script>
     document.addEventListener( 'DOMContentLoaded', function () {
       var secondarySlider = new Splide( '#secondary-slider', {
         fixedWidth  : '30%',
         heightRatio : 0.22,
-        gap         : '3%',
+        gap         : '2%',
         cover       : true,
         isNavigation: true,
         direction   : 'rtl',

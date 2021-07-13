@@ -31,7 +31,8 @@ html {
 .one {
   width: 100%;
   background: #773dbd;
-  padding: 80px 100px;
+  padding: 5vh 100px;
+  padding-left: calc(100px - 60px - 1rem) !important;
 }
 .one .slide-inside,.one .slide-inside a,.one .slide-inside p{
   color: white !important;
@@ -41,7 +42,7 @@ html {
   margin: 0;
 }
 .one #secondary-slider .splide__list{
-  margin: 80px auto 0 auto !important;
+  margin: 60px auto 0 auto !important;
 }
 .one .splide--nav>.splide__track>.splide__list>.splide__slide.is-active{
   border-color: #f05323;
@@ -289,7 +290,6 @@ html {
   position: absolute;
   top: -38px;
   right: 0;
-  width: 150px;
   text-overflow: ellipsis;
   text-wrap: none;
   padding: 4px 12px;
@@ -356,4 +356,10 @@ html {
 
 .grey-bg {
   background-color: #dde1ea;
+}
+
+.rotated-text{
+  /* Rotate from top left corner (not default) */
+  transform-origin: 0 0;
+  transform: rotate(90deg);
 }
